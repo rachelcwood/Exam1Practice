@@ -8,9 +8,10 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rachel Wood.
+"""  # DONE 1
 
+# Mark directory as source root to fix error
 import rosegraphics as rg
 
 
@@ -73,6 +74,7 @@ def sum_of_digits(number):
             break
         digit_sum = digit_sum + (number % 10)
         number = number // 10
+        # print(digit_sum)
 
     return digit_sum
 
@@ -146,7 +148,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE 2
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -163,6 +165,13 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+
+    sum_dig = sum_of_digits(n)
+    if sum_dig % 2 == 0:
+            # It's even
+            return False
+    #It's odd
+    return True
 
 
 def run_test_problem0b():
@@ -227,6 +236,15 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
+    cprime = 0
+    for k in range(n+1):
+        # is_prime does not work with values of 0 and 1 and neigher are prime
+        if k >= 2:
+            p = is_prime(k)
+            if p is True:
+                cprime = cprime + 1
+                #print(k)
+    return cprime
 
 
 def run_test_problem0c():
@@ -294,6 +312,12 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+    r=circle.radius
+
+
+
+    for k in range(n+1):
+        newcircle = circle.move_center_to()
 
 
 # ----------------------------------------------------------------------
