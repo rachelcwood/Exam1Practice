@@ -170,7 +170,7 @@ def problem0a(n):
     if sum_dig % 2 == 0:
             # It's even
             return False
-    #It's odd
+    # It's odd
     return True
 
 
@@ -227,7 +227,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE 3.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -243,7 +243,7 @@ def problem0b(n):
             p = is_prime(k)
             if p is True:
                 cprime = cprime + 1
-                #print(k)
+                # print(k)
     return cprime
 
 
@@ -263,11 +263,11 @@ def run_test_problem0c():
     circle1 = rg.Circle(rg.Point(100, 50), 30)
     circle1.fill_color = 'blue'
     problem0c(circle1, 6, window1)
-    window1.continue_on_mouse_click()
 
     circle2 = rg.Circle(rg.Point(75, 200), 75)
     circle2.fill_color = 'green'
     problem0c(circle2, 3, window1)
+
     window1.close_on_mouse_click()
 
     # A third test on ANOTHER window.
@@ -304,7 +304,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE 4
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -312,12 +312,18 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
-    r=circle.radius
+    r = circle.radius
+    centercirc = circle.center
+    x = centercirc.x
+    y = centercirc.y
+    circle.attach_to(window)
+    window.render(.5)
 
-
-
-    for k in range(n+1):
-        newcircle = circle.move_center_to()
+    for k in range(n):
+        newcircle = rg.Circle(rg.Point(x+2*r, y), r)
+        x = x+2*r
+        newcircle.attach_to(window)
+        window.render(.5)
 
 
 # ----------------------------------------------------------------------
