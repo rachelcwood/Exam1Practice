@@ -179,11 +179,10 @@ def problem1a(m, n):
     return sumsin
 
 
-
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE 4
     #   It TESTS the  problem1b  function defined below.
     #   Include at least **   4   ** tests.
     # ------------------------------------------------------------------
@@ -196,6 +195,38 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+    # Test 1:
+    expected = 6  # This is APPROXIMATELY the correct answer.
+    answer = problem1b(3, 6)
+    print()
+    print('Test 1 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 2:
+    expected = 4  # This is APPROXIMATELY the correct answer.
+    answer = problem1b(2, 5)
+    print()
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # ------------------------------------------------------------------
+    # TO DO: 2 (continued).
+    # Below this comment, add 2 more test cases of your own choosing.
+    # ------------------------------------------------------------------
+
+    # Test 3:
+    expected = 4  # This is APPROXIMATELY the correct answer.
+    answer = problem1b(13, 2)
+    print()
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 5  # This is APPROXIMATELY the correct answer.
+    answer = problem1b(7, 3)
+    print()
+    print('Test 4 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
 
 
 def problem1b(m, f):
@@ -215,7 +246,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE 5
     #   Note that you should write its TEST function first (above).
     #
     ####################################################################
@@ -228,6 +259,19 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+    pct = 0
+
+    fm = f*m
+
+    for k in range(fm-m+1):
+        # print(m+k)
+
+        if is_prime(m+k) == True:
+            # print(m+k)
+            pct = pct + 1
+            # print(msq+k)
+
+    return pct
 
 
 def run_test_problem1c():
