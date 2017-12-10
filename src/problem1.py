@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 1.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rachel Wood.
+"""  # DONE 1
 
 ########################################################################
 # Students:
@@ -25,6 +25,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 #    on it, in class or via Piazza.
 ########################################################################
 
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -125,6 +126,20 @@ def run_test_problem1a():
     # Below this comment, add 2 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    # Test 3:
+    expected = 1.135  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(1, -2)
+    print()
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
+    expected = 0.0633210628  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(2, -3)
+    print()
+    print('Test 4 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
 
 def problem1a(m, n):
     """
@@ -144,7 +159,7 @@ def problem1a(m, n):
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE 3
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -152,6 +167,17 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # ------------------------------------------------------------------
+    sumsin = 0
+
+    nsq = n**2
+    msq = m**2
+
+    for k in range(nsq-msq+1):
+        sumsin = sumsin + math.sin(msq+k)
+        # print(msq+k)
+
+    return sumsin
+
 
 
 def run_test_problem1b():
