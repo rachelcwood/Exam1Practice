@@ -191,7 +191,7 @@ def problem2b(rect, n, delta, win):
       :type win:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE 3
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
