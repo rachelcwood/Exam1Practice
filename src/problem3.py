@@ -115,7 +115,8 @@ def run_test_problem3a():
     print('Test 5 expected:', expected)
     print('       actual:  ', answer)
 
-    window3.close_on_mouse_click()
+    window4.close_on_mouse_click()
+
 
 def problem3a(window, point, n):
     """
@@ -245,6 +246,31 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # ------------------------------------------------------------------
+
+    # Window 1:
+    title = 'Problem 3b.'
+    window1 = rg.RoseWindow(400, 600, title)
+
+    sumtot = 0
+    num = 3
+
+    point0 = point1
+
+    # Test 1 (it is on window 1):
+    for k in range(m):
+        sumtot = sumtot + problem3a(window1, point1, num)
+        point1.y = point0.y - num * 10 + 60
+        point1.x = point0.x - 60 - 40 * k
+        # print (point1.x)
+        # print (point1.y)
+        # print (k)
+        # print (num)
+        # print ()
+        num = num + 2
+
+    window1.close_on_mouse_click()
+    return sumtot
+
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
