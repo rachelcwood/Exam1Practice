@@ -27,11 +27,13 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 import math
 
+
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
     run_test_problem1b()
     run_test_problem1c()
+    print('hot' * 5)
 
 
 def is_prime(n):
@@ -93,7 +95,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE 2
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # ------------------------------------------------------------------
@@ -356,7 +358,7 @@ def problem1c(n):
            and the sum of the digits in 223092870 is 33.
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE 6
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -370,6 +372,16 @@ def problem1c(n):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 20 minutes.
     # ------------------------------------------------------------------
+    pct = 1
+
+    for k in range(n - 1):
+        # print(k+2)
+        if is_prime(k + 2) == True:
+            # print(k + 2)
+            pct = pct * (k+2)
+    sumpct = sum_of_digits(pct)
+
+    return sumpct
 
 
 # ----------------------------------------------------------------------
