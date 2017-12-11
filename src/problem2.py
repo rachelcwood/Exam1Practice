@@ -102,7 +102,7 @@ def problem2a(circle, rectangle, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE 2
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -110,6 +110,24 @@ def problem2a(circle, rectangle, window):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:   10 to 15 minutes.
     # ------------------------------------------------------------------
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+
+    urc = rectangle.get_upper_right_corner()
+    llc = rectangle.get_lower_left_corner()
+
+    arrowline = rg.Line(urc, llc)
+    arrowline.arrow = 'last'
+    arrowline.attach_to(window)
+    window.render()
+    window.continue_on_mouse_click()
+
+    circle.fill_color = rectangle.outline_color
+
+    window.render()
+
 
 def run_test_problem2b():
     """ Tests the  problem2b   function. """
@@ -181,6 +199,19 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+    recturc = rect.get_upper_right_corner()
+    rectllc = rect.get_lower_left_corner()
+
+    rect.attach_to(win)
+
+    for k in range(n-1):
+        newrect = rg.Rectangle(rg.Point(recturc.x+delta, recturc.y-delta),
+                               rg.Point(rectllc.x-delta, rectllc.y+delta))
+        recturc = newrect.get_upper_right_corner()
+        rectllc = newrect.get_lower_left_corner()
+
+        newrect.attach_to(win)
+        win.render()
 
 
 # ----------------------------------------------------------------------
