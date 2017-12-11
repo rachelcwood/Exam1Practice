@@ -103,6 +103,19 @@ def run_test_problem3a():
     # your choice), add 1 more test case of your own choosing.
     # ------------------------------------------------------------------
 
+    # Window 4:
+    title = 'Problem 3a. Test 5: Start at (20, 20), 11 lines'
+    window4 = rg.RoseWindow(450, 300, title)
+
+    # Test 4 (it is on window 3):
+    point = rg.Point(20, 20)
+    expected = 101
+    answer = problem3a(window4, point, 11)
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    window3.close_on_mouse_click()
 
 def problem3a(window, point, n):
     """
@@ -145,6 +158,24 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # ------------------------------------------------------------------
+    thicksum = 0
+
+    for k in range(n):
+        line = rg.Line(point, rg.Point(point.x, point.y + 50))
+        point.x = point.x + 20
+        point.y = point.y + 10
+
+        if k >= 7:
+            line.thickness = 13
+        else:
+            line.thickness = 1 + k * 2
+        line.attach_to(window)
+        window.render()
+
+        thicksum = thicksum + line.thickness
+
+    return thicksum
+
 
 
 def run_test_problem3b():
